@@ -1,0 +1,220 @@
+.form-entry {
+    margin-bottom: 0;
+    margin-top: 20px;
+    position: relative;
+
+    &.select {
+        margin-top: 10px;
+    }
+
+    &.price, &.icon {
+        > img {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            position: absolute;
+            top: 58%;
+            transform: translateY(-50%);
+            left: 5px;
+        }
+
+        input {
+            padding-left: 24px;
+        }
+        
+    }
+    .floating-label {
+        color: rgba(51, 51, 51, 0.44);
+        font-size: 15px;
+        left: 10px;
+        pointer-events: none;
+        position: absolute;
+        top: 11px;
+        transition: 0.2s ease all;
+
+        img {
+            width: 13px;
+            height: 13px;
+            opacity: 0.45;
+        }
+    }
+
+    &.icon {
+
+        > img {
+            top: 50%
+        }
+        .floating-label {
+            left: 24px;
+            top: 10px;
+        }
+    }
+
+    input:focus ~ .floating-label,
+    textarea:focus ~ .floating-label,
+    input:not(:placeholder-shown) ~ .floating-label,
+    textarea:not(:placeholder-shown) ~ .floating-label {
+        font-size: 12px;
+        top: 0px;
+
+        img {
+            width: 13px;
+            height: 13px;
+        }
+    }
+    
+
+    label {
+        color: rgba(51, 51, 51, 88%);
+        font-size: 15px;
+        padding-left: 20px;
+    }
+
+    &.cols-2 {
+        @include flex-child(45%);
+
+        @media (max-width: 500px) {
+            @include flex-child(100%);
+        }
+    }
+
+    &.cols-1 {
+        @include flex-child(100%);
+    }
+
+    label {
+        cursor: pointer;
+        margin: 0;
+        min-height: 20px;
+        padding-bottom: 14px;
+        padding-left: 0px;
+        padding-right: 10px;
+        padding-top: 14px;
+
+        input {
+            cursor: pointer;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            width: 0;
+
+            &:checked ~ .checkmark  {
+                background-color: $primary;
+
+                &:after {
+                    display: block;
+                }
+            }
+        }
+        
+
+        .checkmark {
+            background-color: #eee;
+            height: 25px;
+            left: 0;
+            position: absolute;
+            top: 0px;
+            width: 25px;
+
+            &:after {
+                color: #ffffff;
+                content: '\02143';
+                display: none;
+                font-size: 17px;
+                left: 8px;
+                position: absolute;
+                top: -3px;
+                @include prefix(transform, rotate(32deg));
+            }
+        }
+
+        .text {
+            font-size: 16px;
+            padding-left: 35px;
+        }
+    }
+
+    .file {
+        display: block;
+        width: 100%;
+        padding: 9px 15px;
+        background: #f5f5f5;
+        border-radius: 6px;
+
+        &--text {
+            padding: 5px 15px;
+            display: inline-block;
+            background: $light-grey;
+            color: $base-font-color;
+            font-size: 17px;
+            border-radius: 4px;
+        }
+
+        &--uploaded {
+            font-size: 17px;
+            line-height: 1;
+            padding: 0 0 0 10px;
+        }
+    }
+}
+
+span.error span {
+    color: #ed4444;
+    display: block;
+    margin-top: 2px;
+    padding-left: 0px;
+    font-size: 14px;
+}
+
+
+select,
+input,
+textarea {
+    background: $input-bg;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    height: auto;
+    padding: 15px 10px 7px;
+    width: 100%;
+}
+
+
+.radio-input {
+    justify-content: space-between;
+    margin-top: 0;
+    @include flex();
+    .form-container {
+        margin-bottom: 10px;
+        @include flex-child(23%);
+        label {
+            border: 2px solid $border-color;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            padding: 15px 10px;
+            text-align: center;
+            @include prefix(transition, all ease 0.3s 0s);
+        }
+
+        input {
+            cursor: pointer;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            width: 0;
+
+            &:checked ~ label {
+                background: $primary;
+                color: $darkest-blue;
+            }
+        }
+
+        &:hover, &:active, &:focus {
+            label {
+                background: $link-hover;
+                color: $darkest-blue;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Example: @include prefix(transform, rotate(180deg));
+@mixin prefix($property, $value) {
+    #{$property}: $value;
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value;
+}
+
+// Example: @include flex();
+@mixin flex() {
+	display: flex;
+	-webkit-display: flex;
+	-moz-display: flex;
+	-ms-display: flex;
+	-o-display: flex;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+}
+
+// Example: @include flex-child(25%);
+@mixin flex-child($width) {
+	flex: 0 1 $width;
+	-webkit-flex: 0 1 $width;
+	-moz-flex: 0 1 $width;
+	-ms-flex: 0 1 $width;
+	-o-flex: 0 1 $width;
+	width: $width;
+}

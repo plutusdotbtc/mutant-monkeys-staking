@@ -1,0 +1,279 @@
+.nftdetails {
+    background: $light-grey;
+    padding-top: 5px;
+
+    .container {
+        align-items: flex-start;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+        @include flex();
+    }
+
+    &--back {
+        @extend .container;
+        position: absolute;
+        top: 75px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        z-index: 3;
+
+        span {
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+
+    &--name {
+        @include flex-child(49%);
+
+        @media (max-width: 900px) {
+            @include flex-child(100%);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h3 {
+            text-transform: capitalize;
+            margin: 5px 0 0;
+        }
+
+        h4 {
+            margin: 5px 0 0;
+        }
+
+        .rarity-score {
+            color: $rare-color;
+            @extend h3;
+        }
+
+        &--auction {
+            margin-top: 10px;
+
+            p {
+                font-weight: 500;
+                margin: 0 5px 0 0;
+                font-size: 18px;
+            }
+        }
+    }
+
+    &--pricebox {
+        background: $secondary;
+        padding: 20px;
+        z-index: initial;
+        @include flex-child(49%);
+
+        @media (min-width: 901px) {
+            border-radius: 0px;
+            position: relative;
+            top: -40px;
+        }
+        
+        @media (max-width: 900px) {
+            margin: 20px 0 0;
+            @include flex-child(100%);
+        }
+
+        &--price {
+            justify-content: space-between;
+            margin-top: 10px;
+            @include flex();
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &--mintprice {
+
+                @media (max-width: 450px) {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                > span {
+                    color: $primary;
+                    font-size: 17px;
+                    font-weight: 500;
+                }
+
+                h3 {
+                    line-height: 1;
+                    margin: 0;
+
+                    img {
+                        display: inline-block;
+                        height: 20px;
+                        vertical-align: middle;
+                        width: 20px;
+                    }
+
+                    span:nth-child(2) {
+                        color: #fff;
+                        display: inline-block;
+                        font-size: 25px;
+                        font-weight: 500;
+                        line-height: 1;
+                        vertical-align: middle;
+                    }
+
+                    
+                }
+
+                &--span {
+                    color: $light-grey;
+                    display: block;
+                    font-size: 14px;
+                    
+                    @media (max-width: 1200px) and (min-width: 901px) {
+                        display: block;
+                        font-size: 12px;
+                        margin-top: -3px;
+                    }
+                }
+
+                &--metadata,&--highestbid, &--metanft {
+                    margin-top: 10px;
+
+                    span {
+                        color: $light-grey;
+                        display: block;
+                        font-size: 14px;
+                        
+                        @media (max-width: 1200px) and (min-width: 901px) {
+                            display: block;
+                            font-size: 12px;
+                            margin-top: -3px;
+                        }
+                    }
+                }
+
+                .form-entry {
+                    margin-top: 5px;
+
+                    &.wallet {
+                        min-width: 350px;
+                    }
+                }
+
+                &--highestbid {
+                    margin: 5px 0 0 0;
+                }
+            }
+
+            &.small {
+                .nftdetails--pricebox--price--mintprice {
+                    > span {
+                        font-size: 14px;
+                    }
+
+                    h3 {
+                        line-height: 1;
+                    }
+
+                    img {
+                        height: 15px;
+                        width: 15px;
+                    }
+
+                    span:nth-child(2) {
+                        font-size: 18px;
+                    }
+
+
+                }
+            }
+
+            &--btns {
+                align-self: center;
+
+                .minting-soon {
+                    font-size: 20px;
+                    color: #fff;
+                    font-weight: 500;
+                    margin: 0;
+                }
+            }
+
+            &.input {
+                .nftdetails--pricebox--price--btns {
+                    align-self: flex-end;
+
+                    > a {
+                        display: block;
+                    }
+                }
+            }
+            
+        }
+
+        &--desc {
+            margin: 10px 0 0;
+            color: #fff;
+            font-weight: 500;
+            font-size: 18px;
+
+            @media (max-width: 500px) {
+                font-size: 16px;
+            }
+        }
+
+        &--shadow {
+            background: $primary;
+            height: 100%;
+            left: 5px;
+            position: absolute;
+            top: 5px;
+            width: 100%;
+            z-index: -1;
+
+            @media (max-width: 900px) {
+                display: none;
+            }
+        }
+    }
+
+    &--rows {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-top:20px;
+        width: 100%;
+        @include flex();
+    }
+
+    &--left, &--right {
+        @include flex-child(49%);
+
+        @media (max-width: 1050px) {
+            margin: 20px auto 0;
+            @include flex-child(750px);
+        }
+        @media (max-width: 790px) {
+            @include flex-child(100%);
+        }
+    }
+
+    &--full {
+        margin: 20px auto 0;
+        @include flex-child(100%);
+
+        @media (max-width: 1050px) {
+            @include flex-child(750px);
+        }
+        @media (max-width: 790px) {
+            @include flex-child(100%);
+        }
+    }
+
+    & ~ .faqs {
+        background: $off-white;   
+    }
+}
+
+.item-not-found {
+    text-align: center;
+}

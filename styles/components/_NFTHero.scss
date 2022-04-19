@@ -1,0 +1,70 @@
+.nftHero {
+    background: #ffffff;
+    padding: 115px 0 70px;
+    position: relative;
+    text-align: center;
+
+    @media (max-width: $mobile) {
+        padding: 80px 0 50px;
+    }
+
+    &--img {
+        display: inline-block;
+        max-height: 500px;
+        max-width: 1000px;
+
+        @media (max-width: 1000px + 40) {
+            max-width: 100%;
+        }
+
+        @media (max-height: 500px + 40) {
+            max-height: 300px;
+        }
+    }
+
+    &--share {
+        justify-content: right;
+        @include flex();
+
+        &--container {
+            position: relative;
+        }
+
+        &--options {
+            background: $white;
+            bottom: 51px;
+            box-shadow: 0px 0px 15px 2px #ccc;
+            display: none;
+            padding: 0;
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+
+            &.show {
+                display: block;
+            }
+
+            a {
+                border-bottom: 1px solid $secondary;
+                color: $secondary;
+                cursor: pointer;
+                @include flex();
+                align-items: center;
+                padding: 10px;
+                text-align: left;
+                width: 100%;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                }
+
+                &:hover {
+                    box-shadow: 0px 0px 2px 2px #dad5d5;
+                }
+            }
+        }
+    }
+}

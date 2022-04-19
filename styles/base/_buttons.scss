@@ -1,0 +1,126 @@
+.button,button {
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 230px;
+    position: relative;
+    top:0;
+    
+    @include prefix(transition, all 0.3s ease 0s);
+
+    &--text {
+        min-width: 230px;
+        overflow: hidden;
+        padding: 10px 35px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        z-index: 5;
+
+        &:before {
+            background: $primary;
+        }
+
+        &:after {
+            background: $primary;
+        }
+
+        &--edge {
+            background: $primary;
+        }
+    }
+
+    &--text, &--shadow {
+        background: transparent;
+
+        &:before {
+            bottom: 0;
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            width: calc(100% - 20px);
+            z-index: -1;
+        }
+
+        &:after {
+            content: "";
+            height: calc(100% - 20px);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            z-index: -1;
+        }
+
+        &--edge {
+            bottom: -6px;
+            height: 40px;
+            position: absolute;
+            right: 10px;
+            transform: rotate(45deg);
+            width: 20px;
+            z-index: -1;
+        }
+    }
+
+
+    &--shadow {
+        bottom: -3px;
+        content: '';
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        right: -3px;
+        width: 100%;
+        z-index: 3;
+        @include prefix(transition, all 0.3s ease 0s);
+
+        &:before {
+            background: $tertiary;
+        }
+
+        &:after {
+            background: $tertiary;
+        }
+
+        &--edge {
+            background: $tertiary;
+        }
+    }
+
+    span {
+        color: $darkest-blue;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    img {
+        display: inline-block;
+        height: 23px;
+        margin-right: 10px;
+        vertical-align: middle;
+        width: 23px;
+    }
+
+    &:hover, &:active, &:focus {
+        color: $tertiary;
+        top: -3px;
+        .button--shadow {
+            bottom: -6px;
+            right: -6px;
+        }
+    }
+
+}
+
+.button-container {
+    @media (max-width: $mobile) {
+        text-align: center;
+    }
+}

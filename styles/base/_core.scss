@@ -1,0 +1,387 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea,
+p,
+span,
+li {
+	color: $base-font-color;
+    font-family: $base-font-family;
+	font-size: $base-font-size;
+	font-weight: 400;
+	line-height: $base-line-height;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+
+// Header styles
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	color: $base-font-color;
+	font-weight: 600;
+}
+
+h1 {font-size: 40px;}
+h2 {font-size: 30px;}
+h3 {font-size: 25px;}
+h4 {font-size: 20px;}
+h5 {font-size:18px;}
+h5 {font-size:16px;}
+
+@media (max-width: $tablet) {
+	h1 {font-size: 35px;}
+	h2 {font-size: 28px;}
+	h3 {font-size: 22px;}
+	h4 {font-size: 18px;}
+	h5 {font-size:16px;}
+	h6 {font-size:14px;font-weight: 600;}
+}
+
+@media (max-width: $mobile) {
+	h1 {font-size: 25px;}
+	h2 {font-size: 22px;}
+	h3 {font-size: 18px;}
+	h4 {font-size: 16px;}
+	h5 {font-size:15px;font-weight: 600;}
+	h6 {font-size:14px;font-weight: 600;}
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $background-body; /* Fallback for when there is no custom background color defined. */
+}
+
+.top-section {
+	padding-top: 93px;
+
+	@media(max-width: $tablet) {
+		padding-top: 89px;
+	}
+
+	@media(max-width: $mobile) {
+		padding-top: 57px;
+	}
+}
+
+.container {
+	margin: 0 auto;
+	max-width: $page-width;
+	width: 100%;
+
+	@media(max-width: $page-width + 40) {
+		max-width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	@media(max-width: $mobile) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+.container-small {
+	margin: 0 auto;
+	max-width: $tablet;
+	width: 100%;
+	@media(max-width: $tablet + 40) {
+		max-width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	@media(max-width: $mobile) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+.container-tiny {
+	margin: 0 auto;
+	max-width: 800px;
+	width: 100%;
+	@media(max-width: 840px) {
+		max-width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	@media(max-width: $mobile) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.section-header {
+		text-align: center;
+	}
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+a {
+	color: $link;
+	text-decoration: none;
+
+	&:hover, &:active, &:focus {
+		color: $link-hover;
+	}
+
+	// &:visited {
+	// 	color: $link-visited;
+	// }
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+ul, ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+section {
+	padding: 50px 0;
+
+	@media(max-width: $mobile) {
+		padding: 30px 0;
+	}
+}
+
+.section-header {
+	margin-bottom: 30px;
+
+	h1,h2,h3,h4,h5,h6 {
+		margin: 0;
+
+		@media(max-width: $mobile) {
+			text-align: center;
+		}
+	}
+}
+
+.svg-icon {
+	display: inline-block;
+	height: 23px;
+	vertical-align: middle;
+	width: 23px;
+}
+
+.button-holder {
+	display: block;
+	margin-top: 30px;
+	text-align: center;
+	width: 100%;
+}
+
+.loading {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.loading-icon {
+	height: 22px;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 50px;
+	z-index: 3;
+
+	@keyframes loading {
+		0% {top: 0px;}
+		50% {top: 10px;}
+		100% {top: 0px;}
+	}
+
+	> span {
+		animation: loading 1s infinite alternate ease;
+		background: $secondary;
+		border-radius: 100%;
+		display: inline-block;
+		height: 10px;
+		margin-left: 5px;
+		position: relative;
+		width: 10px;
+
+		&:nth-child(2) {
+			animation-delay: 0.2s;
+		}
+		&:nth-child(3) {
+			animation-delay: 0.4s;
+		}
+	}
+}
+
+
+.edge {
+	position: relative;
+	top: 0;
+	@include prefix(transition, all 0.3s ease 0s);
+
+	&--fill,
+	&--shadow {
+		background: transparent;
+		position: relative;
+		&:before {
+			background: $secondary;
+			bottom: 0;
+			content: "";
+			height: 100%;
+			left: 0;
+			position: absolute;
+			width: calc(100% - 20px);
+			z-index: 0;
+		}
+
+		&:after {
+			background: $secondary;
+			content: "";
+			height: calc(100% - 21px);
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 22px;
+			z-index: 0;
+		}
+
+		&--edge {
+			background: $secondary;
+			bottom: 3px;
+			height: 29px;
+			position: absolute;
+			right: 7px;
+			transform: rotate(45deg);
+			width: 20px;
+			z-index: 0;
+		}
+	}
+
+	&--content {
+		position: relative;
+		z-index: 5;
+	}
+
+	&:hover, &:active, &:focus {
+		top: -3px;
+		.edge--shadow {
+			bottom: -6px;
+			right: -6px;
+		}
+	}
+
+	&--fill {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	&--shadow {
+		bottom: -3px;
+		content: '';
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		right: -3px;
+		width: 100%;
+		z-index: 0;
+		@include prefix(transition, all 0.3s ease 0s);
+		&:before {
+			background: $primary;
+			z-index: -1;
+		}
+	
+		&:after {
+			background: $primary;
+			z-index: -1;
+		}
+	
+		&--edge {
+			background: $primary;
+			z-index: -1;
+		}
+	}
+}
+
+.stacks-price {
+	img {
+		display: inline-block;
+		margin-right: 5px;
+    	vertical-align: middle;
+		width: 15px;
+	}
+
+	span {
+		display: inline-block;
+		text-transform: lowercase;
+		vertical-align: middle;
+		font-weight: 500;
+	}
+}
+
+.picture-text {
+	img {
+		display: inline-block;
+		margin-right: 5px;
+    	vertical-align: middle;
+		width: 20px;
+	}
+
+	span {
+		display: inline-block;
+		text-transform: capitalize;
+		vertical-align: middle;
+		font-weight: 500;
+	}
+}

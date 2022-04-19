@@ -1,0 +1,458 @@
+.bitcoinmonkeys {
+    padding-top: 64px;
+
+    @media (max-width: 1088px) {
+        padding-top: 76px;
+    }
+
+    @media (max-width: 600px) {
+        padding-top: 57px;
+    }
+
+    header {
+        background: #10355a;
+    }
+
+    .banner {
+        background-image: url("/assets/bitcoin-monkeys/CHRISTMAS_EVENT.png");
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        padding-bottom: 24%;
+
+        @media (max-width: 700px) {
+            padding-bottom: 31%;
+        }
+        @media (max-width: 450px) {
+            padding-bottom: 40%;
+        }
+    }
+
+    .raffle {
+        &--top {
+            background: $secondary;
+            width: 100%;
+
+            .button {
+                margin-right: 40px;
+
+                @media (max-width: 650px) {
+                    margin-right: 0;
+                }
+            }
+
+            &--tickets {
+                align-items: center;
+                @include flex();
+
+                @media (max-width: 650px) {
+                    justify-content: center;
+                    @include flex-child(100%);
+                }
+
+                img {
+                    margin-right: 10px;
+                    width: 50px;
+                }
+
+                span {
+                    color: #faf069;
+                    font-size: 19px;
+
+                    a {
+                        font-size: 12px;
+                        margin-left: 10px;
+                        text-decoration: underline;
+                        color: #faf069;
+                    }
+                }
+            }
+
+            &--button {
+                background: #10355a;
+                padding: 10px 0;
+
+                .container {
+                    align-items: center;
+                    @include flex-child(100%);
+                    @include flex();
+
+                    @media (max-width: 650px) {
+                        justify-content: center;
+                    }
+                }
+
+                .socials {
+                    margin-left: auto;
+                    @include flex();
+                    gap: 10px;
+                    justify-content: center;
+                    align-items: flex-end;
+
+                    @media (max-width: 800px) {
+                        width: 100%;
+                    }
+
+                    a {
+                        @include flex-child(35px);
+                        margin-left: 10px;
+                    }
+
+                    img {
+                        max-width: 35px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+
+            &--title {
+                @include flex-child(100%);
+                img {
+                    width: 350px;
+                }
+
+                h1 {
+                    color: #ffffff;
+                    font-size: 45px;
+                    font-weight: 500;
+                    margin: 0;
+                    max-width: 600px;
+                }
+            }
+        }
+
+        &--left {
+            background: #c0e0ff;
+            width: 100%;
+            padding: 50px 0;
+
+            h2 {
+                margin: 10px 0;
+                text-align: center;
+                @include flex-child(100%);
+            }
+
+            .raffle--scoring {
+                @include flex();
+                flex-wrap: wrap;
+
+                .column-one {
+                    @include flex-child(50%);
+
+                    @media (max-width: 600px) {
+                        @include flex-child(100%);
+                    }
+
+                    > .item:nth-child(6),
+                    > .item:nth-child(7),
+                    > .item:nth-child(8) {
+                        display: none;
+                    }
+                }
+                .column-two {
+                    @include flex-child(50%);
+                    > .item:nth-child(2),
+                    > .item:nth-child(3),
+                    > .item:nth-child(4),
+                    > .item:nth-child(5) {
+                        display: none;
+                    }
+
+                    @media (max-width: 600px) {
+                        @include flex-child(100%);
+                    }
+
+                    .item {
+                        border-left: 1px solid rgba(65,26,1,0.37);
+
+                        @media (max-width: 600px) {
+                            border-left: none;
+                        }
+                    }
+
+                    .headers {
+                        @media (max-width: 600px) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .headers {
+                    padding-right: 10px;
+                    text-align: right;;
+                    span {
+                        font-size: 12px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                }
+                .item {
+                    align-items: center;
+                    border-top: 1px solid rgba(65,26,1,0.37);
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    padding: 10px 0;
+                    @include flex();
+
+                    &--details {
+                        align-items: center;
+                        padding-left: 10px;
+                        @include flex();
+                        img {
+                            margin-right: 10px;
+                            width: 30px;
+                        }
+                    }
+
+                    .name {
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 30px;
+                    }
+
+                    .pts {
+                        border: 1px solid;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        font-weight: 800;
+                        height: 25px;
+                        background-color: black;
+                        color: #19a6fd;
+                        line-height: 23px;
+                        margin-right: 10px;
+                        text-align: center;
+                        width: 25px;
+                    }
+
+                    .sub-scoring {
+                        margin-top: 5px;
+                        @include flex-child(100%);
+
+                        .item {
+                            padding: 5px 0 5px 20px;
+                        }
+
+                        .name {
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        &.images {
+                            @include flex();
+
+                            .item {
+                                border: none;
+                                justify-content: center;
+                                padding:0;
+                                @include flex-child(33.3%);
+
+                                img {
+                                    width: 60px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &--right {
+           width: 100%;
+
+            .raffle--prizes {
+                padding: 50px 0;
+                background: #19a6fd;
+                /* background: #317cc8; */
+                
+
+                .container {
+                    align-items: flex-start;
+                    justify-content: center;
+                    @include flex();
+                    gap: 30px;
+
+                    > div {
+                        justify-content: space-evenly;
+                        @include flex();
+                        @include flex-child(calc(22% - 22.5px));
+                        gap: 20px;
+
+                        @media (max-width: 780px) {
+                            @include flex-child(100%);
+                        }
+    
+                        &.column-one {
+                            @include flex-child(calc(34% - 22.5px));
+
+                            @media (max-width: 780px) {
+                                @include flex-child(100%);
+                            }
+                        }
+    
+                        img {
+                            @include flex-child(150px);
+
+                            @media (max-width: 1050px) {
+                                @include flex-child(60px);
+                            }
+                        }
+                    }
+    
+                    > h2,h3 {
+                        text-align: center;
+                        margin: 0 0 20px;
+                        @include flex-child(100%);
+                        color: #faf069;
+                    }
+
+                    > h2 {
+                        color: $white
+                    }
+                    
+
+                    h3 {
+
+                        @media (max-width: 1190px) {
+                            min-height: 75px;
+                        }
+                        @media (max-width: 780px) {
+                            min-height: 0px;
+                        }
+                        span {
+                            display: block;
+                            /* color: $white; */
+                            color: #faf069;
+                        }
+                    }
+
+                    .column-four {
+                        h3,span {
+                            /* color: #69f438; */
+                            color: $white;
+                        }
+                    }
+                }
+
+                
+            }
+
+            .raffle--content {
+                text-align: center;
+                margin-bottom: 20px;
+
+                &--how {
+                    @include flex();
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    &--option {
+                        @include flex-child(300px);
+
+                        .number {
+                            font-size: 40px;
+                            font-weight: 600;
+                            display: block;
+                            color: #19a6fd;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    ol {
+                        margin: 0 auto;
+                        max-width: 430px;
+                        padding-right:30px;
+                    }
+                }
+
+                &--right {
+                    margin-top: 20px;
+                }
+
+                p {
+                    max-width: 600px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    .winningRaffle {
+        text-align: center;
+        margin: 50px auto;
+
+        .jackpot {
+            @include flex();
+            justify-content: center;
+            align-items: center;
+
+            &--outline {
+                padding: 15px;
+                border: 2px solid;
+                border-radius: 8px;
+                @include flex-child(635px);
+            }
+
+            img {
+                position: relative;
+                top: -20px;
+                @include flex-child(30px);
+            }
+        }
+
+        
+
+        .animateNumbers {
+            width: 100%;
+            overflow: hidden;
+            overflow: hidden;
+                height: 20px;
+
+            span {
+                display: block;
+                font-weight: 500;
+                letter-spacing: 3px;
+            }
+            
+        }
+
+        .winner {
+            height: 50px;
+            background: #afd7ff;
+            padding: 15px;
+            width: 600px;
+            .animateNumbers {
+                display: none;
+            }
+            &.animate {
+                .animateNumbers {
+                    display: block;
+                }
+
+                .move {
+                    animation: mymove 8s infinite;
+                    position: relative;
+                }
+
+                @keyframes mymove {
+                    from {top: 0px;}
+                    to {top: -500px;}
+                }
+            }
+        }
+
+        .button {
+            margin-top: 20px;
+        }
+
+        &.winnerfound {
+            .winner {
+                background: #06cb5e;
+            }
+
+            .winnerTicket {
+                display: block;
+                font-weight: 500;
+                letter-spacing: 3px;
+            }
+        }
+    }
+}

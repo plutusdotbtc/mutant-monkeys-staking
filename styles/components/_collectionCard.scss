@@ -1,0 +1,345 @@
+.collectionCard,.nftCard {
+    display: inline-block;
+    max-width: 274px;
+    position: relative;
+    top:0;
+    width: 100%;
+    @include prefix(transition, all 0.3s ease 0s);
+
+    &--image {
+        height: 300px;
+        position: relative;
+
+        svg {
+            left: 0;
+            position: absolute;
+            top: 0;
+            z-index:5;
+        }
+
+        &--padding {
+            height: 0;
+            min-width: 0;
+            padding-bottom: 100%;
+            width: 100%;
+        }
+
+        &--holder {
+            align-items: center;
+            background:$darkest-blue;
+            height: 300px;
+            justify-content: center;
+            left: 0;
+            position: absolute;
+            top: 0%;
+            @include flex();
+
+            img {
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+
+        }
+
+        &--peek {
+            border: 2px solid $primary;
+            border-radius: 2px;
+            height: 65px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 65px;
+
+            img {
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        &--alert {
+            background: #ef5f5f;
+            color: #fff;
+            font-weight: 600;
+            padding: 5px;
+            position: absolute;
+            right: 0;
+            z-index: 10;
+        }
+    }
+
+    &--text {
+        background: $dark-blue;
+        min-height: 130px;
+        padding: 0 8px 5px;
+        position: relative;
+        z-index: 7;
+
+        &:before {
+            background: $dark-blue;
+            border-radius: 15px;
+            content: " ";
+            height: 26px;
+            left: 50%;
+            position: absolute;
+            top: -13px;
+            transform: translateX(-50%);
+            width: 95%;
+            z-index: 1;
+        }
+
+        h3, h4 {
+            color: $white;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1;
+            margin: 0 0 10px;
+            position: relative;
+            text-align: center;
+            z-index: 3;
+        }
+
+        &--header {
+            position: relative;
+            top:-16px;
+
+            > span {
+                color: #55A8BE;
+                display: inline-block;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 1;
+                position: relative;
+                text-align: center;
+                text-transform: capitalize;
+                width: 100%;
+                z-index: 3;
+            }
+
+            > h4 {
+                margin: 0;
+            }
+        }
+
+        
+
+        
+        &--details {
+            position: relative;
+            z-index: 3;
+            @include flex();
+
+            &--detail {
+                align-self: flex-start;
+                text-align: left;
+                @include flex-child(65%);
+
+                &:nth-child(2) {
+                    text-align: right;
+                    @include flex-child(35%);
+                }
+
+                span {
+                    color: $white;
+                    font-size: 14px;
+                    font-weight: 500;
+                    &:first-child,&:nth-child(3) {
+                        color: #55A8BE;
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 1;
+                    }
+
+                    img {
+                        display: inline-block;
+                        height: 11px;
+                        margin-right: 5px;
+                        width: 11px;
+                    }
+                }
+
+                &.rarity {
+                    span:nth-child(2) {
+                        color: $rare-color;
+                        font-weight: 500;
+                    }
+                }
+
+                .tiny {
+                    span {
+                        font-size: 11px;
+                        &:first-child {
+                            display: inline-block;
+                            margin-right: 5px;
+                        }
+
+                        img {
+                            height: 8px;
+                            margin-right: 2px;
+                            width: 8px;
+                        }
+                    }
+                }
+            }
+
+            &.metadetails {
+                border-top: 1px solid $light-blue;
+                margin-top: 10px;
+                padding-top: 13px;
+
+                .collectionCard--text--details--detail {
+                    @include flex-child(50%);
+    
+                    &:nth-child(2) {
+                        text-align: right;
+                        @include flex-child(50%);
+                    }
+                }
+                span {
+                    img {
+                        height: 8px;
+                        margin-right: 3px;
+                        width: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &--shadow {
+        bottom: -6px;
+        height: 100%;
+        left: -7px;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        @include prefix(transition, all 0.3s ease 0s);
+
+        &:before {
+            background: $primary;
+            bottom: 0;
+            content: "";
+            height: calc(100% - 26px);
+            left: 0;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        &:after {
+            background: $primary;
+            content: "";
+            height: 26px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: calc(100% - 26px);
+            z-index: -1;
+        }
+
+        &--edge {
+            background: $primary;
+            height: 36px;
+            left: 9px;
+            position: absolute;
+            top: 3.5px;
+            transform: rotate(45deg);
+            width: 26px;
+            z-index: -1;
+        }
+    }
+
+    &:hover, &:active, &:focus {
+        top:-5px;
+        .collectionCard,.nftCard {
+                &--shadow  {
+                bottom: -14px;
+                left: -14px;
+            }
+        }
+    }
+}
+
+.nftCard {
+    min-height: 141px;
+    &--text {
+        min-height: 143px;
+        &--details--detail {
+            span {
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+
+        &--details.metadetails {
+            span {
+                font-size: 12px;
+                &:first-child {
+                    font-size: 10px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    &--quick-actions {
+        background: $dark-blue;
+        padding: 0 8px 5px;
+        position: relative;
+        z-index: 8;
+
+        .fullwidth {
+            width: 100%;
+        }
+
+        &--input {
+            margin-bottom: 5px;
+            @include flex();
+
+            .form-entry {
+                margin: 0;
+                @include flex-child(50%);
+
+                img {
+                    height: 15px;
+                    top: 50%;
+                    width: 15px;
+                }
+
+                input {
+                    border-radius: 6px 0 0 6px;
+                    font-size: 14px;
+                    padding-left: 24px;
+                }
+
+                .floating-label {
+                    left: 24px;
+                    font-size: 13px;
+                }
+            }
+
+            .button {
+                min-width: 0px;
+                @include flex-child(50%);
+
+                &--text {
+                    min-width: 0px;
+                    padding: 10px;
+
+                    img {
+                        height: 20px;
+                        margin-right: 7px;
+                        width:20px;
+                    }
+                    span {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

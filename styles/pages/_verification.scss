@@ -1,0 +1,151 @@
+.verificationPageWrapper {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #242534;
+  min-height: 100vh;;
+
+  h1 {
+    color: #fff;
+    margin-top: 100px;
+  }
+
+  .verificationForm {
+    min-height: 400px;
+    min-width: 600px;
+    border-radius: 16px;
+    background: #eef1f5;
+    border: 3px solid #ccd0d6;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    margin-bottom: 150px;
+
+    .appImage {
+      height: 75px;
+      width: 75px;
+    }
+
+    h2 {
+      margin-bottom: 0px;
+    }
+
+    .body {
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+
+    .linkingRow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        margin: 0
+      }
+
+      .walletBox {
+        background: #d8dbdf;
+        border-radius: 3px;
+        padding: 2px 8px;
+        margin: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        #login-indicator {
+          background: $green;
+          border-radius: 100%;
+          display: inline-block;
+          height: 9px;
+          margin-right: 8px;
+          vertical-align: middle;
+          width: 9px;
+        }
+      }
+
+      .discordBox {
+        background: #d8dbdf;
+        border-radius: 3px;
+        padding: 2px 8px;
+        margin: 6px;
+      }
+    }
+
+    .rolesList {
+      width: 400px;
+      padding-bottom: 36px;
+
+      h5 {
+        margin-bottom: 6px;
+      }
+
+      .roleItem {
+        background: #d8dbdf;
+        border-radius: 5px;
+        min-height: 50px;
+        margin-bottom: 10px;
+        padding: 6px 12px;
+        display: flex;
+        flex-direction: row;
+
+        .roleStatus {
+          width: 36px;
+          padding-right: 8px;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+
+          .indicator {
+            background: #d44;
+            height: 16px;
+            width: 16px;
+            border-radius: 10px;
+          }
+        }
+
+        .roleDescription {
+          h5 {
+            margin: 0px;
+          }
+
+          p {
+            margin: 0px;
+          }
+        }
+
+        &.valid {
+          opacity: 1.0;
+
+          .roleStatus {
+            .indicator {
+              background: #5a5;
+              border: 2px solid #8b8;
+            }
+          }
+        }
+
+        &.invalid {
+          opacity: 0.5;
+
+          .roleStatus {
+            .indicator {
+              background: #d44;
+              border: 2px solid #d77;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .buttonRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}

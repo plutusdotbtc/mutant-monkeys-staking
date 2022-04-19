@@ -1,0 +1,695 @@
+.christmas {
+    // background: #000000;
+
+    .header {
+        background: $secondary;
+    }
+
+    .button, button {
+        background-color: #7a40ee;
+        background-image: linear-gradient(135deg, #5546ff, rgba(122, 64, 238, 0));
+        border-radius: 10px;
+        @include prefix(transition, all 0.3s ease 0s);
+
+
+        &:hover {
+            background-color: #490bc7;
+            background-image: linear-gradient(135deg, #3324d6, rgba(122, 64, 238, 0));
+            top: 0;
+        }
+
+
+        &--text {
+            &:before,&:after {
+                content: "";
+                display: none;
+            }
+            .button--text--edge {
+                display: none;
+            }
+    
+            > img {
+                display: none;
+            }
+
+            span {
+                color: #ffffff;;
+            }
+        }
+
+        &--shadow {
+            display: none;
+        }
+        
+    }
+
+    .intro {
+        background: #000;
+        border-radius: 20px;
+        display: inline-block;
+        margin: 80px 0 0 20px;
+        padding: 0;
+        padding: 40px 20px;
+        width: calc(100% - 40px);
+
+        @media (max-width: 800px) {
+            margin: 80px 0 0 10px;
+            width: calc(100% - 20px);
+        }
+        
+
+        &--inner {
+            margin: 0 auto;
+            max-width: 1000px;
+            @include flex();
+        }
+
+        &--text {
+            padding-right: 20px;
+            @include flex-child(70%);
+
+            @media (max-width: 500px) {
+                padding-right: 0px;
+                @include flex-child(100%);
+            }
+
+            img {
+                max-width: 300px;
+
+                @media (max-width: 600px) {
+                    max-width: 240px;
+                }
+            }
+
+            h1 {
+                color: $white;
+                font-size: 60px;
+                font-weight: 500;
+                line-height: 1.2;
+                margin: 0;
+
+                @media (max-width: 800px) {
+                    font-size: 40px;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 30px;
+                }
+            }
+
+            p {
+                color: #afafaf;
+                max-width: 500px;
+                font-size: 14px;
+                font-weight: 300;
+
+                @media (max-width: 600px) {
+                    font-size: 13px;
+                }
+            }
+
+            button {
+                padding: 13px;
+                color: #ffffff;
+            }
+
+            .sponsors-holder {
+                margin-top: 20px;
+
+                img {
+                    height: 22px;
+                    max-width: 50%;
+
+                    @media (max-width: 400px) {
+                        height: 17px;
+                    }
+                }
+
+                span {
+                    width: 1px;
+                    background: #fff;
+                    margin: 0 8px;
+                }
+            }
+        }
+
+        &--tree {
+            padding-top: 65px;
+            text-align: center;
+            @include flex-child(30%);
+
+            @media (max-width: 500px) {
+                margin-top: 20px;
+                @include flex-child(100%);
+            }
+
+            img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            // svg {
+            //     height: 320px;
+            //     width: 100%;
+
+            //     @media (max-width: 1200px) {
+            //         height: 210px;
+            //     }
+
+            //     @media (max-width: 800px) {
+            //         height: 160px;
+            //     }
+            // }
+        }
+    }
+
+    .calendar {
+        align-items: center;
+        flex-wrap:wrap;
+        gap: 30px 70px;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        max-width: 1000px;
+        @include flex();
+
+        @media (max-width: 770px) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        @media (max-width: 800px) {
+            gap: 30px 80px;
+            justify-content: space-evenly;
+        }
+
+        @media (max-width: 600px) {
+            gap: 30px;
+        }
+
+        &--day {
+            @include flex-child(200px);
+
+            @media (max-width: 800px) {
+                @include flex-child(130px);
+            }
+            
+
+            &--box {
+                background: #0b1538;
+                cursor: pointer;
+                height: 200px;
+                position: relative;
+                top: 0;
+                width: 200px;
+                @include prefix(transition, all 0.3s ease 0s);
+
+                @media (max-width: 800px) {
+                    height: 130px;
+                    width: 130px;
+                }
+
+                &:hover {
+                    top: -3px;
+                }
+                svg {
+                    background: #0b1538;
+                    @include prefix(transition, all 0.3s ease 0s);
+
+                    image.to {
+                        opacity: 0;
+                        @include prefix(transition, all 0.3s ease 0s);
+                    }
+
+                    image.so {
+                        opacity: 1;
+                        @include prefix(transition, all 0.3s ease 0s);
+                    }
+
+                    path#Path_139-4 {
+                          
+                    }
+
+                    &:hover {
+                        image.to {
+                            opacity: 1;
+                        }
+    
+                        image.so {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                .no-peeking,
+                .entered {
+                    position: absolute;
+                    top: 50%;
+                    background: #7243f2;
+                    padding: 5px 5px;
+                    border-radius: 5px;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                    width: 140px;
+                    text-align: center;
+                    color: #fff;
+                }
+
+                .entered {
+                    background: #23ea85;
+                    color: $secondary;
+                    font-weight: 500;
+                }
+            }
+
+            &.past:not(.showcase) {
+                .calendar--day--box {
+                    opacity: 0.5;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &.today {
+                .calendar--day--box {
+                    > svg {
+                        image.to {
+                            opacity: 1;
+                        }
+    
+                        image.so {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+
+            
+
+            &--details {
+                display: none;
+            }
+
+            &--close {
+                display: none;
+            }
+
+            &--nfts {
+                display: none;
+            }
+
+            &.showcase {
+                align-items: top;
+                background: #080808;
+                border-radius: 20px;
+                justify-content: space-between; 
+                padding: 20px;
+                position: relative;
+                @include flex-child(100%);
+                @include flex();
+
+                &.day-1 {
+                    background-image: url("/assets/christmas-bitcoin-monkey.jpg");
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+
+                    h2,p,li,.entered {
+                        color: #ffffff !important;
+                    }
+                }
+
+                .calendar--day--close {
+                    cursor: pointer;
+                    display: block;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    padding: 10px;
+                    @include prefix(transform, scale(1));
+                    @include prefix(transition, all 0.3s ease 0s);
+
+                    &:hover {
+                        @include prefix(transform, scale(1.1));
+
+                        span {
+                            background: $primary;
+                        }
+                    }
+
+
+                    span {
+                        background: $white;
+                        display: block;
+                        height: 2px;
+                        width: 30px;
+                        @include prefix(transition, all 0.5s ease 0s);
+
+                        &:first-child {
+                            @include prefix(transform, rotate(45deg) translateY(5px) translateX(5px));
+                        }
+                        &:nth-child(2) {
+                            margin-top: 11px;
+                            @include prefix(transform, rotate(-45deg) translateY(-5px) translateX(5px));
+                        }
+                    }
+                }
+
+
+                .calendar--day--box {
+                    width: 120px;
+                    height: 120px;
+
+                    > svg {
+                        image.to {
+                            opacity: 1;
+                        }
+    
+                        image.so {
+                            opacity: 0;
+                        }
+                    }
+
+                    .no-peeking,
+                    .entered {
+                        width: 100px;
+                        font-size: 12px;
+                    }
+                }
+
+                .calendar--day--nfts {
+                    display: block;
+                    width: 100%;
+
+                    .slick-slide {
+                        // width: 320px !important;
+                    }
+
+                    .nftCard--text {
+                        min-height: 93px;;
+                    }
+
+                    section {
+                        padding: 30px 0 0;
+                    }
+
+                    .button-holder {
+                        margin-top: 0;
+
+                        button {
+                            padding: 13px 30px;
+                            color: $white;
+                        }
+                    }
+                }
+
+                
+
+
+
+
+                .calendar--day--details {
+                    display: block;
+                }
+                
+
+                .calendar--day--details {
+                    @include flex-child(calc(100% - 140px));
+
+                    ul {
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            color: #A29FB5;
+                            list-style-position: inside;
+                            font-size: 20px;
+                            list-style-type: square;
+                        }
+                    }
+                }
+
+                h2,p {
+                    color: #A29FB5;
+                }
+
+                h2 {
+                    margin: 0;
+                    font-weight: 500;
+                }
+
+                p {
+                    margin: 0 0 20px 0;
+                    max-width: 600px;
+                }
+
+                .prices {
+                    width: 100%;
+                    @include flex();
+                    li {
+                        @include flex-child(150px);
+
+                        img {
+                            max-width: 100%;
+                        }
+                    }
+                }
+
+                .button-holder.entered {
+
+                    button {
+                        background: #2dea85;
+                        color: $secondary;
+                        font-weight: 500;
+
+                        &:hover {
+                            top:0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .text-image {
+
+        .container-tiny {
+            @include flex();
+            align-items: center;
+        }
+
+        &--left {
+            padding-right: 15px;
+            @include flex-child(50%);
+
+            @media (max-width: 700px) {
+                padding-left: 0px;
+                @include flex-child(100%);
+            }
+
+            h3 {
+                color: #6b6e72;
+                margin: 0;
+                font-weight: 400;
+                font-size: 18px;
+            }
+
+            h2 {
+                margin: 0;
+            }
+        }
+        &--right {
+            @include flex-child(50%);
+
+            @media (max-width: 700px) {
+                @include flex-child(100%);
+            }
+
+            iframe {
+                width: 100%;
+                border-radius: 20px;
+            }
+        }
+
+    }
+    .container-tiny {
+        max-width: 1000px;
+    }
+
+    .sponsors {
+        h2 {
+            margin: 0;
+        }
+        &--inner {
+            align-items: center;
+            justify-content: space-between;
+            @include flex();
+
+            @media (max-width: 800px) {
+                justify-content:space-around;
+            }
+
+            a {
+                position: relative;
+                top: 0;
+                @include flex-child(250px);
+                @include prefix(transition, all 0.3s ease 0s);
+
+                &:hover {
+                    top: -3px;
+                }
+            }
+        }
+    }
+
+    .collections {
+
+        .container-tiny {
+            @media (max-width: 1040px) {
+                padding: 0 20px;
+            }
+        }
+        &--inner {
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            @include flex();
+
+            
+        }
+
+        .collectionCard--text {
+            min-height: 33px;
+        }
+    }
+
+    .title-intro {
+        margin-bottom: 30px;
+        h3 {
+            color: #6b6e72;
+            margin: 0;
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        h2 {
+            margin: 0;
+        }
+    }
+
+    button.bitcoin-monkey {
+        background-image: url("/assets/button-bitcoin-monkeys.png");
+        background-position: center;
+        background-size: cover;
+        color: #642800 !important;
+        font-weight: 600;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .twitter {
+        display: none;
+
+        &.open {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            z-index: 2000;
+            display: block;
+            background: rgba(239, 239, 239, 45%);
+        }
+
+        &--inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            transform: translate(-50%,-50%);
+            background: #000;
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        &--box {
+            text-align: center;
+
+            h3 {
+                margin: 0 0 10px;
+                color: $white;
+            }
+            p {
+                margin: 0;
+                color: #9d9d9d;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    color: #7f7f7f;
+                    max-width: 190px;
+                    list-style: inside;
+                    margin: 0 auto;
+                    text-align: left;
+                }
+            }
+
+            .button {
+                padding: 13px;
+                color: #fff;
+                margin-top: 20px;
+            }
+        }
+
+        &--close {
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            @include prefix(transform, scale(1));
+            @include prefix(transition, all 0.3s ease 0s);
+
+            &:hover {
+                @include prefix(transform, scale(1.1));
+
+                span {
+                    background: $primary;
+                }
+            }
+
+
+            span {
+                background: $white;
+                display: block;
+                height: 2px;
+                width: 30px;
+                @include prefix(transition, all 0.5s ease 0s);
+
+                &:first-child {
+                    @include prefix(transform, rotate(45deg) translateY(5px) translateX(5px));
+                }
+                &:nth-child(2) {
+                    margin-top: 11px;
+                    @include prefix(transform, rotate(-45deg) translateY(-5px) translateX(5px));
+                }
+            }
+        }
+    }
+
+    span.entered {
+        color: #5546ff;
+        font-weight: 500;
+        display: block;
+        padding: 13px 0;
+    }
+
+}

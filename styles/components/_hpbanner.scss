@@ -1,0 +1,72 @@
+.hpBanner {
+    position: relative;
+    .container-small {
+        position: relative;
+        z-index: 5;
+        @include flex();
+    }
+
+    &--text {
+        align-self: center;
+        padding-right: 20px;
+        @include flex-child(50%);
+
+        @media (max-width: $mobile) {
+            @include flex-child(100%);
+        }
+
+        h1,p {
+            color: $white;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+
+    &--featured {
+        align-self: center;
+        text-align: right;
+        @include flex-child(50%);
+
+        @media (max-width: $mobile) {
+            margin-top: 20px;
+            text-align: center;
+            @include flex-child(100%);
+        }
+
+        > h3 {
+            color: $white;
+            margin: 0 0 10px;
+        }
+    }
+
+    &--bgimage {
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+
+        &:before {
+            background: rgb(4 29 36 / 50%);
+            content: " ";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+}
